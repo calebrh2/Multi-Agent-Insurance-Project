@@ -98,6 +98,7 @@ def run_pipeline(
                 )
             sleeper(_BACKOFF_SECONDS[attempt - 1])
             continue
+
         def recommend(scored_case: RiskScoreResult = scored) -> RecommendationResult:
             return recommendation_agent(scored_case, model)
 
