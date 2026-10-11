@@ -29,7 +29,9 @@ EXPECTED = IntakeResult(
 
 def test_intake_agent_normalizes_a_hardcoded_application() -> None:
     """A known application comes back as a normalized intake message."""
-    model = ScriptedAdapter([EXPECTED.model_dump_json()])
+    model = ScriptedAdapter(
+        ['{"normalized_notes": "Primary residence, new roof", "missing_fields": []}']
+    )
     result = intake_agent(RAW, model)
     assert result == EXPECTED
     assert result.missing_fields == []
