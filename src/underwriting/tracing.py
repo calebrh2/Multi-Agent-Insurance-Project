@@ -23,6 +23,8 @@ class TraceSpan(BaseModel):
     output: dict[str, Any] | None = None
     duration_ms: float = Field(ge=0)
     tokens_used: int = Field(ge=0)
+    prompt_tokens: int = Field(default=0, ge=0)
+    completion_tokens: int = Field(default=0, ge=0)
     timestamp: str
     error: str | None = None
     attempt: int = Field(default=1, ge=1)
@@ -35,11 +37,11 @@ class TraceLog(BaseModel):
     spans: list[TraceSpan] = Field(default_factory=list)
 
 
-def tokens_used(model: ModelAdapter) -> int:
-    """Return the token count of the adapter's most recent call."""
+def token_counts(model: ModelAdapter) -> tuple[int, int]:
+    """Return prompt and completion tokens from the adapter's most recent call."""
     if model.last_response is None:
-        return 0
-    return model.last_response.tokens_used
+        return (0, 0)
+    return (model.last_response.prompt_tokens, model.last_response.completion_tokens)
 
 
 def run_step[T: BaseModel](
@@ -58,6 +60,7 @@ def run_step[T: BaseModel](
     try:
         result = call()
     except Exception as exc:
+        prompt_tokens, completion_tokens = token_counts(model)
         _append(
             trace,
             step=step,
@@ -66,11 +69,13 @@ def run_step[T: BaseModel](
             output=None,
             started=started,
             timestamp=timestamp,
-            tokens=tokens_used(model),
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
             error=type(exc).__name__,
             attempt=attempt,
         )
         raise
+    prompt_tokens, completion_tokens = token_counts(model)
     _append(
         trace,
         step=step,
@@ -79,7 +84,8 @@ def run_step[T: BaseModel](
         output=result.model_dump(),
         started=started,
         timestamp=timestamp,
-        tokens=tokens_used(model),
+        prompt_tokens=prompt_tokens,
+        completion_tokens=completion_tokens,
         error=None,
         attempt=attempt,
     )
@@ -95,7 +101,8 @@ def _append(
     output: dict[str, Any] | None,
     started: float,
     timestamp: str,
-    tokens: int,
+    prompt_tokens: int,
+    completion_tokens: int,
     error: str | None,
     attempt: int,
 ) -> None:
@@ -110,7 +117,9 @@ def _append(
             input=received,
             output=output,
             duration_ms=elapsed_ms,
-            tokens_used=tokens,
+            tokens_used=prompt_tokens + completion_tokens,
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
             timestamp=timestamp,
             error=error,
             attempt=attempt,

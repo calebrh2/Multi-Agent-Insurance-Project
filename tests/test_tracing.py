@@ -45,6 +45,8 @@ def test_two_agent_trace_records_input_output_duration_and_tokens() -> None:
     assert enrichment_span.output == result.model_dump()
     for span in trace.spans:
         assert span.duration_ms >= 0
+        assert span.prompt_tokens == 11
+        assert span.completion_tokens == 7
         assert span.tokens_used == 18
         assert span.timestamp
         assert span.error is None

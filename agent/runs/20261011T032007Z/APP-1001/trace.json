@@ -1,0 +1,201 @@
+{
+  "applicant_id": "APP-1001",
+  "spans": [
+    {
+      "step": "intake",
+      "agent": "intake_agent",
+      "input": {
+        "applicant_id": "APP-1001",
+        "full_name": "Maya Chen",
+        "age": 34,
+        "product": "Home",
+        "coverage_amount": 300000,
+        "stated_claims": 0,
+        "notes": "Primary residence, new roof"
+      },
+      "output": {
+        "applicant_id": "APP-1001",
+        "full_name": "Maya Chen",
+        "age": 34,
+        "product": "home",
+        "coverage_amount": 300000,
+        "stated_claims": 0,
+        "normalized_notes": "Primary residence, new roof",
+        "missing_fields": []
+      },
+      "duration_ms": 5165.885418995458,
+      "tokens_used": 376,
+      "prompt_tokens": 361,
+      "completion_tokens": 15,
+      "timestamp": "2026-10-11T03:20:07.894156+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "enrichment",
+      "agent": "enrichment_agent",
+      "input": {
+        "applicant_id": "APP-1001",
+        "full_name": "Maya Chen",
+        "age": 34,
+        "product": "home",
+        "coverage_amount": 300000,
+        "stated_claims": 0,
+        "normalized_notes": "Primary residence, new roof",
+        "missing_fields": []
+      },
+      "output": {
+        "applicant_id": "APP-1001",
+        "intake": {
+          "applicant_id": "APP-1001",
+          "full_name": "Maya Chen",
+          "age": 34,
+          "product": "home",
+          "coverage_amount": 300000,
+          "stated_claims": 0,
+          "normalized_notes": "Primary residence, new roof",
+          "missing_fields": []
+        },
+        "external": {
+          "applicant_id": "APP-1001",
+          "credit_band": "excellent",
+          "prior_claims": 0,
+          "property_risk": "low"
+        },
+        "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+      },
+      "duration_ms": 2312.6389590033796,
+      "tokens_used": 467,
+      "prompt_tokens": 434,
+      "completion_tokens": 33,
+      "timestamp": "2026-10-11T03:20:13.060187+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "risk_scoring",
+      "agent": "risk_scoring_agent",
+      "input": {
+        "applicant_id": "APP-1001",
+        "intake": {
+          "applicant_id": "APP-1001",
+          "full_name": "Maya Chen",
+          "age": 34,
+          "product": "home",
+          "coverage_amount": 300000,
+          "stated_claims": 0,
+          "normalized_notes": "Primary residence, new roof",
+          "missing_fields": []
+        },
+        "external": {
+          "applicant_id": "APP-1001",
+          "credit_band": "excellent",
+          "prior_claims": 0,
+          "property_risk": "low"
+        },
+        "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+      },
+      "output": {
+        "applicant_id": "APP-1001",
+        "risk_score": 0.15,
+        "risk_factors": [],
+        "rationale": "Excellent credit, no prior claims, and low property risk leave little to charge against this application.",
+        "enrichment": {
+          "applicant_id": "APP-1001",
+          "intake": {
+            "applicant_id": "APP-1001",
+            "full_name": "Maya Chen",
+            "age": 34,
+            "product": "home",
+            "coverage_amount": 300000,
+            "stated_claims": 0,
+            "normalized_notes": "Primary residence, new roof",
+            "missing_fields": []
+          },
+          "external": {
+            "applicant_id": "APP-1001",
+            "credit_band": "excellent",
+            "prior_claims": 0,
+            "property_risk": "low"
+          },
+          "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+        }
+      },
+      "duration_ms": 2674.775502004195,
+      "tokens_used": 591,
+      "prompt_tokens": 554,
+      "completion_tokens": 37,
+      "timestamp": "2026-10-11T03:20:15.372844+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "recommendation",
+      "agent": "recommendation_agent",
+      "input": {
+        "applicant_id": "APP-1001",
+        "risk_score": 0.15,
+        "risk_factors": [],
+        "rationale": "Excellent credit, no prior claims, and low property risk leave little to charge against this application.",
+        "enrichment": {
+          "applicant_id": "APP-1001",
+          "intake": {
+            "applicant_id": "APP-1001",
+            "full_name": "Maya Chen",
+            "age": 34,
+            "product": "home",
+            "coverage_amount": 300000,
+            "stated_claims": 0,
+            "normalized_notes": "Primary residence, new roof",
+            "missing_fields": []
+          },
+          "external": {
+            "applicant_id": "APP-1001",
+            "credit_band": "excellent",
+            "prior_claims": 0,
+            "property_risk": "low"
+          },
+          "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+        }
+      },
+      "output": {
+        "applicant_id": "APP-1001",
+        "decision": "approve",
+        "rationale": "A score of 0.15 with no material factors supports approval.",
+        "risk": {
+          "applicant_id": "APP-1001",
+          "risk_score": 0.15,
+          "risk_factors": [],
+          "rationale": "Excellent credit, no prior claims, and low property risk leave little to charge against this application.",
+          "enrichment": {
+            "applicant_id": "APP-1001",
+            "intake": {
+              "applicant_id": "APP-1001",
+              "full_name": "Maya Chen",
+              "age": 34,
+              "product": "home",
+              "coverage_amount": 300000,
+              "stated_claims": 0,
+              "normalized_notes": "Primary residence, new roof",
+              "missing_fields": []
+            },
+            "external": {
+              "applicant_id": "APP-1001",
+              "credit_band": "excellent",
+              "prior_claims": 0,
+              "property_risk": "low"
+            },
+            "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+          }
+        }
+      },
+      "duration_ms": 2183.2165840023663,
+      "tokens_used": 616,
+      "prompt_tokens": 591,
+      "completion_tokens": 25,
+      "timestamp": "2026-10-11T03:20:18.047650+00:00",
+      "error": null,
+      "attempt": 1
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "cases": [
+    {
+      "applicant_id": "APP-1001",
+      "total_duration_ms": 12336.516464005399,
+      "total_tokens": 2050,
+      "prompt_tokens": 1940,
+      "completion_tokens": 110,
+      "agents": [
+        {
+          "agent": "intake_agent",
+          "duration_ms": 5165.885418995458,
+          "tokens_used": 376,
+          "prompt_tokens": 361,
+          "completion_tokens": 15,
+          "error": null
+        },
+        {
+          "agent": "enrichment_agent",
+          "duration_ms": 2312.6389590033796,
+          "tokens_used": 467,
+          "prompt_tokens": 434,
+          "completion_tokens": 33,
+          "error": null
+        },
+        {
+          "agent": "risk_scoring_agent",
+          "duration_ms": 2674.775502004195,
+          "tokens_used": 591,
+          "prompt_tokens": 554,
+          "completion_tokens": 37,
+          "error": null
+        },
+        {
+          "agent": "recommendation_agent",
+          "duration_ms": 2183.2165840023663,
+          "tokens_used": 616,
+          "prompt_tokens": 591,
+          "completion_tokens": 25,
+          "error": null
+        }
+      ]
+    },
+    {
+      "applicant_id": "APP-1002",
+      "total_duration_ms": 7842.492753021361,
+      "total_tokens": 2121,
+      "prompt_tokens": 1974,
+      "completion_tokens": 147,
+      "agents": [
+        {
+          "agent": "intake_agent",
+          "duration_ms": 1029.6180420045857,
+          "tokens_used": 382,
+          "prompt_tokens": 363,
+          "completion_tokens": 19,
+          "error": null
+        },
+        {
+          "agent": "enrichment_agent",
+          "duration_ms": 1700.9163750044536,
+          "tokens_used": 470,
+          "prompt_tokens": 436,
+          "completion_tokens": 34,
+          "error": null
+        },
+        {
+          "agent": "risk_scoring_agent",
+          "duration_ms": 3176.944877006463,
+          "tokens_used": 618,
+          "prompt_tokens": 557,
+          "completion_tokens": 61,
+          "error": null
+        },
+        {
+          "agent": "recommendation_agent",
+          "duration_ms": 1935.0134590058587,
+          "tokens_used": 651,
+          "prompt_tokens": 618,
+          "completion_tokens": 33,
+          "error": null
+        }
+      ]
+    },
+    {
+      "applicant_id": "APP-1003",
+      "total_duration_ms": 7642.097085998103,
+      "total_tokens": 2120,
+      "prompt_tokens": 1975,
+      "completion_tokens": 145,
+      "agents": [
+        {
+          "agent": "intake_agent",
+          "duration_ms": 994.3550419993699,
+          "tokens_used": 382,
+          "prompt_tokens": 364,
+          "completion_tokens": 18,
+          "error": null
+        },
+        {
+          "agent": "enrichment_agent",
+          "duration_ms": 1844.4540839991532,
+          "tokens_used": 474,
+          "prompt_tokens": 437,
+          "completion_tokens": 37,
+          "error": null
+        },
+        {
+          "agent": "risk_scoring_agent",
+          "duration_ms": 2690.307958997437,
+          "tokens_used": 613,
+          "prompt_tokens": 561,
+          "completion_tokens": 52,
+          "error": null
+        },
+        {
+          "agent": "recommendation_agent",
+          "duration_ms": 2112.9800010021427,
+          "tokens_used": 651,
+          "prompt_tokens": 613,
+          "completion_tokens": 38,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

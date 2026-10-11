@@ -1,0 +1,210 @@
+{
+  "applicant_id": "APP-1003",
+  "spans": [
+    {
+      "step": "intake",
+      "agent": "intake_agent",
+      "input": {
+        "applicant_id": "APP-1003",
+        "full_name": "Priya Shah",
+        "age": 41,
+        "product": "Home",
+        "coverage_amount": 900000,
+        "stated_claims": 1,
+        "notes": "Coastal property, one water claim"
+      },
+      "output": {
+        "applicant_id": "APP-1003",
+        "full_name": "Priya Shah",
+        "age": 41,
+        "product": "home",
+        "coverage_amount": 900000,
+        "stated_claims": 1,
+        "normalized_notes": "Coastal property, one water claim",
+        "missing_fields": []
+      },
+      "duration_ms": 994.3550419993699,
+      "tokens_used": 382,
+      "prompt_tokens": 364,
+      "completion_tokens": 18,
+      "timestamp": "2026-10-11T03:20:28.082736+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "enrichment",
+      "agent": "enrichment_agent",
+      "input": {
+        "applicant_id": "APP-1003",
+        "full_name": "Priya Shah",
+        "age": 41,
+        "product": "home",
+        "coverage_amount": 900000,
+        "stated_claims": 1,
+        "normalized_notes": "Coastal property, one water claim",
+        "missing_fields": []
+      },
+      "output": {
+        "applicant_id": "APP-1003",
+        "intake": {
+          "applicant_id": "APP-1003",
+          "full_name": "Priya Shah",
+          "age": 41,
+          "product": "home",
+          "coverage_amount": 900000,
+          "stated_claims": 1,
+          "normalized_notes": "Coastal property, one water claim",
+          "missing_fields": []
+        },
+        "external": {
+          "applicant_id": "APP-1003",
+          "credit_band": "good",
+          "prior_claims": 1,
+          "property_risk": "moderate"
+        },
+        "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+      },
+      "duration_ms": 1844.4540839991532,
+      "tokens_used": 474,
+      "prompt_tokens": 437,
+      "completion_tokens": 37,
+      "timestamp": "2026-10-11T03:20:29.077111+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "risk_scoring",
+      "agent": "risk_scoring_agent",
+      "input": {
+        "applicant_id": "APP-1003",
+        "intake": {
+          "applicant_id": "APP-1003",
+          "full_name": "Priya Shah",
+          "age": 41,
+          "product": "home",
+          "coverage_amount": 900000,
+          "stated_claims": 1,
+          "normalized_notes": "Coastal property, one water claim",
+          "missing_fields": []
+        },
+        "external": {
+          "applicant_id": "APP-1003",
+          "credit_band": "good",
+          "prior_claims": 1,
+          "property_risk": "moderate"
+        },
+        "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+      },
+      "output": {
+        "applicant_id": "APP-1003",
+        "risk_score": 0.45,
+        "risk_factors": [
+          "moderate_property_risk",
+          "stated_claims_disagree_with_external_record"
+        ],
+        "rationale": "Moderate property risk and the stated claims disagreeing with the external record increase the risk score.",
+        "enrichment": {
+          "applicant_id": "APP-1003",
+          "intake": {
+            "applicant_id": "APP-1003",
+            "full_name": "Priya Shah",
+            "age": 41,
+            "product": "home",
+            "coverage_amount": 900000,
+            "stated_claims": 1,
+            "normalized_notes": "Coastal property, one water claim",
+            "missing_fields": []
+          },
+          "external": {
+            "applicant_id": "APP-1003",
+            "credit_band": "good",
+            "prior_claims": 1,
+            "property_risk": "moderate"
+          },
+          "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+        }
+      },
+      "duration_ms": 2690.307958997437,
+      "tokens_used": 613,
+      "prompt_tokens": 561,
+      "completion_tokens": 52,
+      "timestamp": "2026-10-11T03:20:30.921100+00:00",
+      "error": null,
+      "attempt": 1
+    },
+    {
+      "step": "recommendation",
+      "agent": "recommendation_agent",
+      "input": {
+        "applicant_id": "APP-1003",
+        "risk_score": 0.45,
+        "risk_factors": [
+          "moderate_property_risk",
+          "stated_claims_disagree_with_external_record"
+        ],
+        "rationale": "Moderate property risk and the stated claims disagreeing with the external record increase the risk score.",
+        "enrichment": {
+          "applicant_id": "APP-1003",
+          "intake": {
+            "applicant_id": "APP-1003",
+            "full_name": "Priya Shah",
+            "age": 41,
+            "product": "home",
+            "coverage_amount": 900000,
+            "stated_claims": 1,
+            "normalized_notes": "Coastal property, one water claim",
+            "missing_fields": []
+          },
+          "external": {
+            "applicant_id": "APP-1003",
+            "credit_band": "good",
+            "prior_claims": 1,
+            "property_risk": "moderate"
+          },
+          "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+        }
+      },
+      "output": {
+        "applicant_id": "APP-1003",
+        "decision": "refer",
+        "rationale": "A score of 0.45 with moderate property risk and stated claims disagreeing with external record should go to a human underwriter.",
+        "risk": {
+          "applicant_id": "APP-1003",
+          "risk_score": 0.45,
+          "risk_factors": [
+            "moderate_property_risk",
+            "stated_claims_disagree_with_external_record"
+          ],
+          "rationale": "Moderate property risk and the stated claims disagreeing with the external record increase the risk score.",
+          "enrichment": {
+            "applicant_id": "APP-1003",
+            "intake": {
+              "applicant_id": "APP-1003",
+              "full_name": "Priya Shah",
+              "age": 41,
+              "product": "home",
+              "coverage_amount": 900000,
+              "stated_claims": 1,
+              "normalized_notes": "Coastal property, one water claim",
+              "missing_fields": []
+            },
+            "external": {
+              "applicant_id": "APP-1003",
+              "credit_band": "good",
+              "prior_claims": 1,
+              "property_risk": "moderate"
+            },
+            "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+          }
+        }
+      },
+      "duration_ms": 2112.9800010021427,
+      "tokens_used": 651,
+      "prompt_tokens": 613,
+      "completion_tokens": 38,
+      "timestamp": "2026-10-11T03:20:33.611447+00:00",
+      "error": null,
+      "attempt": 1
+    }
+  ]
+}
