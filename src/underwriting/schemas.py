@@ -69,3 +69,12 @@ class RecommendationResult(BaseModel):
     decision: Literal["approve", "deny", "refer"]
     rationale: str
     risk: RiskScoreResult
+
+
+class PipelineResult(BaseModel):
+    """Completed recommendation, or an escalation that carries no score and no decision."""
+
+    applicant_id: str
+    status: Literal["completed", "escalated"]
+    recommendation: RecommendationResult | None = None
+    escalation_reason: str | None = None

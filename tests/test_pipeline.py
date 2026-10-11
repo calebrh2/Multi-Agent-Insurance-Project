@@ -53,6 +53,8 @@ def test_scripted_case_runs_all_four_agents() -> None:
         "recommendation_agent",
     ]
     assert trace.spans[3].input == trace.spans[2].output
-    assert result.decision == "approve"
-    assert result.risk.risk_score == 0.15
+    assert result.status == "completed"
+    assert result.recommendation is not None
+    assert result.recommendation.decision == "approve"
+    assert result.recommendation.risk.risk_score == 0.15
     assert result.applicant_id == "APP-1001"

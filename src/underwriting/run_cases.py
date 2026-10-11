@@ -21,10 +21,12 @@ def evaluate(
     traces: list[TraceLog] = []
     for raw in applications:
         trace = TraceLog(applicant_id=raw.applicant_id)
-        recommendation = run_pipeline(raw, model, trace)
-        write_case(directory, trace, recommendation)
+        outcome = run_pipeline(raw, model, trace)
+        if outcome.recommendation is None:
+            raise RuntimeError(outcome.escalation_reason or "case escalated")
+        write_case(directory, trace, outcome.recommendation)
         traces.append(trace)
-        print(f"{raw.applicant_id} {recommendation.decision}", flush=True)
+        print(f"{raw.applicant_id} {outcome.recommendation.decision}", flush=True)
     write_summary(directory, traces)
     return traces
 
