@@ -1,0 +1,31 @@
+{
+  "applicant_id": "APP-1001",
+  "decision": "approve",
+  "rationale": "A score of 0.15 with no material factors supports approval.",
+  "risk": {
+    "applicant_id": "APP-1001",
+    "risk_score": 0.15,
+    "risk_factors": [],
+    "rationale": "Excellent credit, no prior claims, and low property risk leave little to charge against this application.",
+    "enrichment": {
+      "applicant_id": "APP-1001",
+      "intake": {
+        "applicant_id": "APP-1001",
+        "full_name": "Maya Chen",
+        "age": 34,
+        "product": "home",
+        "coverage_amount": 300000,
+        "stated_claims": 0,
+        "normalized_notes": "Primary residence, new roof",
+        "missing_fields": []
+      },
+      "external": {
+        "applicant_id": "APP-1001",
+        "credit_band": "excellent",
+        "prior_claims": 0,
+        "property_risk": "low"
+      },
+      "enrichment_notes": "External records show excellent credit, no prior claims, and low property risk, which agrees with the application's clean claims history."
+    }
+  }
+}

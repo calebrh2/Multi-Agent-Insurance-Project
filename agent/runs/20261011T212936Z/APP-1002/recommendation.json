@@ -1,0 +1,35 @@
+{
+  "applicant_id": "APP-1002",
+  "decision": "deny",
+  "rationale": "A score of 0.89 with poor credit, multiple prior claims, and high property risk supports denial.",
+  "risk": {
+    "applicant_id": "APP-1002",
+    "risk_score": 0.89,
+    "risk_factors": [
+      "poor_credit",
+      "multiple_prior_claims",
+      "high_property_risk"
+    ],
+    "rationale": "Poor credit, four prior claims, and high property risk, which is worse than the three claims stated, place this application at a high risk level.",
+    "enrichment": {
+      "applicant_id": "APP-1002",
+      "intake": {
+        "applicant_id": "APP-1002",
+        "full_name": "Leon Ruiz",
+        "age": 62,
+        "product": "auto",
+        "coverage_amount": 150000,
+        "stated_claims": 3,
+        "normalized_notes": "Three at-fault accidents in five years",
+        "missing_fields": []
+      },
+      "external": {
+        "applicant_id": "APP-1002",
+        "credit_band": "poor",
+        "prior_claims": 4,
+        "property_risk": "high"
+      },
+      "enrichment_notes": "External records show poor credit, four prior claims, and high property risk, which is worse than the three claims the applicant stated."
+    }
+  }
+}

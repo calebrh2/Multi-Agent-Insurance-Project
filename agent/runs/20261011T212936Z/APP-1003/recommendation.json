@@ -1,0 +1,34 @@
+{
+  "applicant_id": "APP-1003",
+  "decision": "refer",
+  "rationale": "A score of 0.45 with moderate property risk and a stated claim that aligns with external records of one prior claim should go to a human underwriter.",
+  "risk": {
+    "applicant_id": "APP-1003",
+    "risk_score": 0.45,
+    "risk_factors": [
+      "moderate_property_risk",
+      "stated_claims_disagreement"
+    ],
+    "rationale": "Moderate property risk and a stated claim that aligns with external records of one prior claim contribute to a moderate risk score.",
+    "enrichment": {
+      "applicant_id": "APP-1003",
+      "intake": {
+        "applicant_id": "APP-1003",
+        "full_name": "Priya Shah",
+        "age": 41,
+        "product": "home",
+        "coverage_amount": 900000,
+        "stated_claims": 1,
+        "normalized_notes": "Coastal property, one water claim",
+        "missing_fields": []
+      },
+      "external": {
+        "applicant_id": "APP-1003",
+        "credit_band": "good",
+        "prior_claims": 1,
+        "property_risk": "moderate"
+      },
+      "enrichment_notes": "External records show good credit, one prior claim, and moderate property risk, which aligns with the applicant's stated history of one water claim."
+    }
+  }
+}
