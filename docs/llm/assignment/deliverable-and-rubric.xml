@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document source="docs/assignment/deliverable-and-rubric.md" note="Structure added for LLM parsing. Original wording is unchanged.">
+<section name="Deliverable">
+<p>Deliverable
+Submit a single PDF containing screenshots, in order, of:
+
+</p>
+<deliverable_item>Your state/memory design decision and rationale
+</deliverable_item>
+<deliverable_item>Each agent's standalone unit test, and terminal output showing them passing
+</deliverable_item>
+<deliverable_item>Your full pipeline code, including the state-sharing/message-passing mechanism
+</deliverable_item>
+<deliverable_item>Your tracing implementation
+</deliverable_item>
+<deliverable_item>Full traces for 3 different mock applications run through the complete pipeline
+</deliverable_item>
+<deliverable_item>Your cost/latency calculation and written analysis (real-time vs. batch suitability)
+</deliverable_item>
+<deliverable_item>Your simulated failure, the handling code, and terminal output showing the system responding correctly (retry, then escalate, not crash)
+</deliverable_item>
+<deliverable_item>A passing pipeline run
+</deliverable_item>
+<p>
+
+</p>
+</section>
+<section name="Rubric (100 points)">
+<p>Rubric (100 points)
+Criteria	Points
+</p>
+<rubric_criterion points="8">State/memory approach is clearly designed and justified before implementation	8
+</rubric_criterion>
+<rubric_criterion points="15">All four agents implemented and individually unit tested	15
+</rubric_criterion>
+<rubric_criterion points="15">Pipeline correctly connects all four agents using the chosen state pattern	15
+</rubric_criterion>
+<rubric_criterion points="15">Tracing captures agent, input/output, duration, and token usage for each step	15
+</rubric_criterion>
+<rubric_criterion points="8">Traces are captured and legible for all 3 test applications	8
+</rubric_criterion>
+<rubric_criterion points="12">Cost/latency analysis is accurate and draws a specific, justified conclusion	12
+</rubric_criterion>
+<rubric_criterion points="17">Simulated failure is handled correctly (retry then escalate, no crash, no silent wrong answer)	17
+</rubric_criterion>
+<rubric_criterion points="10">Submitted and passing through the pipeline	10
+</rubric_criterion>
+<p>Total	100
+</p>
+</section>
+</document>
